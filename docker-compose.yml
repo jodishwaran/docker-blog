@@ -1,0 +1,17 @@
+version: "3"
+services:
+  next-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.next.prod
+    restart: always
+
+  nginx:
+    depends_on:
+      - next-app
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx.prod
+    ports:
+      - "3000:8000"
+    restart: always
