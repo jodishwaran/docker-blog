@@ -6,4 +6,4 @@ before_install:
   - docker build -t jodishwaran/next-app -f Dockerfile.dev .
 
 script:
-  - docker run jodishwaran/next-app npm run jest:ci
+  - docker run jodishwaran/next-app npm run test:ci
