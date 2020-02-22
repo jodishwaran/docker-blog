@@ -5,7 +5,7 @@
 # chmod 700 ~/.ssh/travis
 set -xe
 eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/travis
+ssh-add ~/.ssh/deploy-key
 # ssh-keyscan -H 'gitlab.com' >> ~/.ssh/known_hosts
 scp ../docker-compose.yml $DO_TRAVIS_CI_USER@$DO_HOST:$DO_APP_DIR
 # chmod +x ./deploy.sh
