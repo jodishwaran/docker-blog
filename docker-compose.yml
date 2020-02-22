@@ -35,7 +35,7 @@ volumes:
       type: none
       device: /home/ganesh/docker-blog/
       o: bind
-  web-root:
+  dhparam:
     driver: local
     driver_opts:
       type: none
