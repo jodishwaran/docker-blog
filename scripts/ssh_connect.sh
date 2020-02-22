@@ -1,7 +1,7 @@
 #!/bin/bash
 mkdir -p ~/.ssh
 echo $DO_TRAVIS_CI_USER_PK | tr -d '\r' > ~/.ssh/id_rsa
-cat ~/.ssh/id_rsa
+# cat ~/.ssh/id_rsa
 chmod 700 ~/.ssh/id_rsa
 eval $(ssh-agent -s)
 ssh-add ~/.ssh/id_rsa
