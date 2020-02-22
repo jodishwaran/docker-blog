@@ -22,5 +22,6 @@ after_success:
   - eval "$(ssh-agent -s)"
   - chmod 600 ./deploy-key
   - ssh-add ./deploy-key
+  - scp docker-compose.yml "$DO_TRAVIS_CI_USER"@"$DO_HOST":"$DO_APP_DIR"
   - ssh -i ./deploy-key "$DO_TRAVIS_CI_USER"@"$DO_HOST" 'bash -s' < ./scripts/deploy.sh
 # - "./scripts/ssh_connect.sh"
