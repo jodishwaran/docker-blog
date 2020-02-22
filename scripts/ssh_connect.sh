@@ -7,5 +7,5 @@ eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/travis
 # ssh-keyscan -H 'gitlab.com' >> ~/.ssh/known_hosts
 scp docker-compose.yml $DO_TRAVIS_CI_USER@$DO_HOST:$DO_APP_DIR
-chmod +x ./deploy.sh
-ssh $DO_TRAVIS_CI_USER@$DO_HOST 'bash -s' < ./deploy.sh
+# chmod +x ./deploy.sh
+# ssh $DO_TRAVIS_CI_USER@$DO_HOST 'bash -s' < ./deploy.sh
