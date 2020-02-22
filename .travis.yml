@@ -22,5 +22,5 @@ after_success:
   - eval "$(ssh-agent -s)"
   - chmod 600 ./deploy-key
   - ssh-add ./deploy-key
-  - ssh -i ./deploy-key "$DO_TRAVIS_CI_USER"@"$DO_HOST" pwd
+  - ssh -i ./deploy-key "$DO_TRAVIS_CI_USER"@"$DO_HOST" 'bash -s' < ./scripts/deploy.sh
 # - "./scripts/ssh_connect.sh"
