@@ -1,6 +1,8 @@
 #!/bin/bash
 pwd
-cd $DO_APP_DIR
+cd /var/www/docker-blog
+pwd
 # echo $DOCKER_PASSWORD | docker login -u $DOCKER_ID --password-stdin
-docker pull $DOCKER_REPO:next-app
-docker pull $DOCKER_REPO:nginx
+docker pull jodishwaran/ganesh-blog:next-app
+docker pull jodishwaran/ganesh-blog:nginx
+pwd
