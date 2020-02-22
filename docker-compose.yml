@@ -9,7 +9,7 @@ services:
     image: jodishwaran/ganesh-blog:nginx-tag
     volumes:
       - web-root:/var/www/html
-      - ./nginx-conf:/etc/nginx/conf.d
+      - ./nginx:/etc/nginx/conf.d
       - certbot-etc:/etc/letsencrypt
       - certbot-var:/var/lib/letsencrypt
     ports:
@@ -17,15 +17,16 @@ services:
       - "443:443"
     restart: always
   certbot:
+    image: certbot/certbot
+    container_name: certbot
     depends_on:
       - nginx
-    image: certbot/certbot
+    volumes:
       - certbot-etc:/etc/letsencrypt
       - certbot-var:/var/lib/letsencrypt
       - web-root:/var/www/html
-      command: certonly --webroot --webroot-path=/var/www/html --email jodishwaran@gmail.com --agree-tos --no-eff-email --staging -d jodishwaran.dev  -d www.jodishwaran.dev 
-volumes: 
-
+    command: certonly --webroot --webroot-path=/var/www/html --email jodishwaran@gmail.com --agree-tos --no-eff-email --force-renewal -d jodishwaran.dev  -d www.jodishwaran.dev
+volumes:
   certbot-etc:
   certbot-var:
   web-root:
@@ -34,3 +35,4 @@ volumes:
       type: none
       device: /home/ganesh/docker-blog/
       o: bind
+# https://www.digitalocean.com/community/tutorials/how-to-secure-a-containerized-node-js-application-with-nginx-let-s-encrypt-and-docker-compose
