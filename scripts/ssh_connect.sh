@@ -3,6 +3,7 @@
 # echo $DO_TRAVIS_CI_USER_PK | tr -d '\r' > ~/.ssh/id_rsa
 # cat ~/.ssh/id_rsa
 # chmod 700 ~/.ssh/travis
+set -xe
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/travis
 # ssh-keyscan -H 'gitlab.com' >> ~/.ssh/known_hosts
