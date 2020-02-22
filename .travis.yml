@@ -1,6 +1,13 @@
 sudo: required
 services:
   - docker
+addons:
+  sshknownhosts:
+    - 68.183.92.250
+
+branches:
+  only:
+    - master
 
 before_install:
   - docker build -t jodishwaran/next-app -f Dockerfile.dev .
@@ -9,8 +16,9 @@ script:
   - docker run jodishwaran/next-app npm run test:ci
 
 after_success:
-  - docker build -t jodishwaran/ganesh-blog:next-app -f Dockerfile.next.prod .
+  - docker build -t jodishwaran/ganesh-blog:next- -f Dockerfile.next.prod .
   - docker build -t jodishwaran/ganesh-blog:nginx -f Dockerfile.nginx.prod .
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker push jodishwaran/ganesh-blog:next-app
   - docker push jodishwaran/ganesh-blog:nginx
+  - "./scripts/ssh_connect.sh"

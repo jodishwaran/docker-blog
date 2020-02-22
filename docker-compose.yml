@@ -1,12 +1,12 @@
 version: "3"
 services:
   next-app:
-    image: jodishwaran/ganesh-blog:next-app-tag
+    image: jodishwaran/ganesh-blog:next-app
     restart: always
   nginx:
     depends_on:
       - next-app
-    image: jodishwaran/ganesh-blog:nginx-tag
+    image: jodishwaran/ganesh-blog:nginx
     volumes:
       - web-root:/var/www/html
       - dhparam:/etc/ssl/certs
