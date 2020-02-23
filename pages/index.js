@@ -8,7 +8,11 @@ const Home = () => (
       <title>Create Next App</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
-
+    <nav>
+      <ul>
+        <li>Home</li>
+      </ul>
+    </nav>
     <main>
       <h1 className={styles.title}>Welcome to Docker CI - CD? may be :)</h1>
     </main>

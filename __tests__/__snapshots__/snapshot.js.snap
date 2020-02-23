@@ -4,6 +4,13 @@ exports[`renders homepage unchanged 1`] = `
 <div
   className="container"
 >
+  <nav>
+    <ul>
+      <li>
+        Home
+      </li>
+    </ul>
+  </nav>
   <main>
     <h1
       className="title"
