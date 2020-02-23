@@ -10,24 +10,24 @@ services:
     volumes:
       - web-root:/var/www/html
       - dhparam:/etc/ssl/certs
-      - certbot-etc:/etc/letsencrypt
+      - certbot-etc2:/etc/letsencrypt
       - certbot-var:/var/lib/letsencrypt
     ports:
       - "80:80"
       - "443:443"
     restart: always
-  certbot:
-    image: certbot/certbot
-    container_name: certbot
-    depends_on:
-      - nginx
-    volumes:
-      - certbot-etc:/etc/letsencrypt
-      - certbot-var:/var/lib/letsencrypt
-      - web-root:/var/www/html
-    command: certonly --webroot --webroot-path=/var/www/html --email jodishwaran@gmail.com --agree-tos --no-eff-email --staging -d jodishwaran.dev  -d www.jodishwaran.dev
+  # certbot:
+  #   image: certbot/certbot
+  #   container_name: certbot
+  #   depends_on:
+  #     - nginx
+  #   volumes:
+  #     - certbot-etc:/etc/letsencrypt
+  #     - certbot-var:/var/lib/letsencrypt
+  #     - web-root:/var/www/html
+  #   command: certonly --webroot --webroot-path=/var/www/html --email jodishwaran@gmail.com --agree-tos --no-eff-email --staging -d jodishwaran.dev  -d www.jodishwaran.dev
 volumes:
-  certbot-etc:
+  certbot-etc2:
   certbot-var:
   web-root:
     driver: local
