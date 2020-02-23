@@ -5,5 +5,11 @@ cd /var/www/docker-blog
 # docker pull jodishwaran/ganesh-blog:next-app
 # docker pull jodishwaran/ganesh-blog:nginx
 # docker-compose up --force-recreate --no-deps nginx
-nohup docker-compose pull && docker-compose down --rmi local && docker-compose up &
+BOUNCE_APP () { 
+    TEXT=$1
+    echo "I am $TEXT ..."
+    nohup `docker-compose pull && docker-compose down --rmi local && docker-compose up` >/dev/null 2>&1 & 
+ }
+BOUNCE_APP bouncing
+# nohup docker-compose pull && docker-compose down --rmi local && docker-compose up >/dev/null 2>&1 &
 # docker-compose restart next-app
