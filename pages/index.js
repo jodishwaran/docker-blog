@@ -10,7 +10,7 @@ const Home = () => (
     </Head>
 
     <main>
-      <h1 className={styles.title}>Welcome to Docker CI - CD? on the way</h1>
+      <h1 className={styles.title}>Welcome to Docker CI - CD? may be :)</h1>
     </main>
   </div>
 );
