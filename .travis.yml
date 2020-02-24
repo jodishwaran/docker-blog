@@ -24,4 +24,5 @@ after_success:
   - ssh-add ./deploy-key
   - scp docker-compose.yml "$DO_TRAVIS_CI_USER"@"$DO_HOST":"$DO_APP_DIR"
   # - ssh -i ./deploy-key "$DO_TRAVIS_CI_USER"@"$DO_HOST" 'bash -s' < ./scripts/deploy.sh
+  - chmod 700 ./scripts/deploy.sh
   - "./scripts/deploy.sh"

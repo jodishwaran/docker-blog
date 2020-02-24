@@ -14,7 +14,7 @@
 # nohup docker-compose pull && docker-compose down --rmi local && docker-compose up >/dev/null 2>&1 &
 # docker-compose restart next-app
 echo "Running ssh connection.."
-ssh -i ../deploy-key $DO_TRAVIS_CI_USER@$DO_HOST << 'ENDSSH'
+ssh -i ~/.ssh/deploy-key $DO_TRAVIS_CI_USER@$DO_HOST << 'ENDSSH'
   cd /var/www/docker-blog
   docker-compose pull && docker-compose down --rmi local && docker-compose up
 ENDSSH
