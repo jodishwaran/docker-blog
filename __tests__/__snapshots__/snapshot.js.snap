@@ -15,7 +15,7 @@ exports[`renders homepage unchanged 1`] = `
     <h1
       className="title"
     >
-      Welcome to Docker CI - CD?
+      Welcome to Docker CI - CD? huh
     </h1>
   </main>
 </div>
