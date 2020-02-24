@@ -14,7 +14,7 @@ const Home = () => (
       </ul>
     </nav>
     <main>
-      <h1 className={styles.title}>Welcome to Docker CI - CD? may be :)</h1>
+      <h1 className={styles.title}>Welcome to Docker CI - CD?</h1>
     </main>
   </div>
 );
